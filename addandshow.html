@@ -1,0 +1,51 @@
+{% extends "enroll/base.html" %}
+{% block content %}
+<div class="row align-content-center">
+<div class="col-md-3">
+<h3 class='text text-center  alert alert-info'>Add New Student<h3>
+    <form method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class='btn btn-success'>
+    </form>
+</div>
+<div class="col-sm-7 offset-1">
+    <h4 class='text text-center  alert alert-info'>Student information</h4>
+    {% if student %}
+     <h4>Data Table</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for i in student %}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.password}}</td>
+                    <td><a href="{%  url 'updatedata' i.id %}" class="btn btn-warning btn-sm">Edit</a></td>
+                    
+                    <td><form action="{% url 'deletedata' i.id %}" method='POST'>
+                        {% csrf_token %}
+                        <input type="submit" class='btn btn-dark' value='Delete'>
+
+                    </form></td>
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    {% else %}
+     <h4 class="text-center alert alert-warning">Data Table</h4>
+    
+    {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

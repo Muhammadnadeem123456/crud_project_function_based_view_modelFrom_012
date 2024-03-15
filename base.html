@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>base</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" href="{%  static enroll/css/bootstrap.css %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <dive class = "container fluid">
+        <h2 class='text text-center  alert alert-info'>function based view crud model form project</h2>
+            {% block content %}
+            {% endblock content %}
+        </dive>
+        {% comment %} <h2 class='text text-center  alert alert-info'>Hi Welcome to Base Django</h2> {% endcomment %}
+    <script src ="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src ="{% static 'enroll/js/popper.js' %}"></script>
+    <script src ="{% static 'enroll/js/bootstrap.js' %}"></script>
+    </body>
+</html>
